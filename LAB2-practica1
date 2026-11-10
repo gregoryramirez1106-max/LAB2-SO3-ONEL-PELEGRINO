@@ -1,0 +1,19 @@
+PRACTICA 1: GESTION DE REPOSITORIOS Y PAQUETES
+1. Actualizar los repositorios del sistema y enumerar los repositorios en uso:
+   sudo apt update && sudo apt upgrade -y
+   cat /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+
+2. Buscar la herramienta en la caché de los repositorios:
+   apt-cache search bashtop
+   # (O alternativamente para btop/bashtop):
+   apt-cache search btop
+
+3. Instalar la herramienta "Bashtop Resource Monitor":
+   sudo apt install bashtop -y
+
+4. Desinstalar la herramienta eliminando también todos los archivos de configuración:
+   sudo apt purge bashtop -y
+
+5. Eliminar todas las dependencias asociadas que ya no estén en uso (autoremove y autoclean):
+   sudo apt autoremove -y
+   sudo apt autoclean
