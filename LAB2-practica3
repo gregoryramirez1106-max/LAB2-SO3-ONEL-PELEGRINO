@@ -1,0 +1,21 @@
+PRACTICA 3: PARTICIONAMIENTO Y MONTAJE
+1. Identificar el nuevo disco duro virtual de 20GB añadido a la VM:
+   lsblk
+
+2. Formatear el disco como ext4, crear carpeta en el Escritorio y montarlo:
+   sudo mkfs.ext4 /dev/sdb
+   mkdir -p ~/Escritorio/mi_disco
+   sudo mount /dev/sdb ~/Escritorio/mi_disco
+
+3. Entrar al directorio y crear el archivo de texto:
+   cd ~/Escritorio/mi_disco
+   touch AdrianAlcantara.txt
+
+4. Desmontar la unidad y montarla en el directorio /mnt:
+   cd ~
+   sudo umount ~/Escritorio/mi_disco
+   sudo mount /dev/sdb /mnt
+
+5. Ingresar a /mnt y comprobar que el archivo continúa ahí:
+   cd /mnt
+   ls -la
