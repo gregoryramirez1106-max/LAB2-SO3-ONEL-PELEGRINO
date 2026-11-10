@@ -1,0 +1,23 @@
+PRACTICA 2: TAREAS PROGRAMADAS (CRON Y AT)
+1. Crear un trabajo cron para actualizar el sistema todos los días a las 11 p.m.:
+   sudo crontab -e
+   # Agregar la siguiente línea dentro del archivo:
+   0 23 * * * apt update && apt upgrade -y > /var/log/system_update.log 2>&1
+
+2. Programar la máquina para que se reinicie todos los domingos a las 3 a.m.:
+   sudo crontab -e
+   # Agregar la siguiente línea al archivo crontab:
+   0 3 * * 0 /sbin/reboot
+
+3. Crear una tarea programada usando el comando "at" para limpiar /tmp en 1 minuto:
+   # Asegurarse de tener el servicio activo:
+   sudo apt install at -y && sudo systemctl enable --now atd
+   
+   # Mostrar contenido ANTES:
+   ls -la /tmp
+   
+   # Programar la tarea:
+   echo "rm -rf /tmp/*" | at now + 1 minute
+   
+   # Mostrar contenido DESPUÉS (esperar 1 minuto):
+   ls -la /tmp
